@@ -63,3 +63,13 @@
     ansible.builtin.dnf:
      name: mongodb-mongosh
      state: present
+
+  - name: get the catalogue count  #if the count is 0 i.e, no data in catalogue server
+    ansible.builtin.command: mongo --host mongodb.neeraj.sbs --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
+    register: catalogue_count
+
+  - name: print the count
+    ansible.builtin.debug:
+     msg: "catalogue count is : {{ catalogue_count }} "
+     
+    
