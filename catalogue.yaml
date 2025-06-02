@@ -32,6 +32,7 @@
     ansible.builtin.unarchive: #Ansible unzip module
      src: /tmp/catalogue.zip
      dest: /app
+     remote_src: yes #Because the file is already available in remote server 
 
   # - name: install dependencies
   #   community.general.npm:
