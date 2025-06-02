@@ -13,11 +13,11 @@
      name: nginx
      state: present
 
-  - name: enable and start nginx
+ -  name: Start and enable front service
     ansible.builtin.service:
-     name: nginx
+     name: frontend
      state: started
-     enabeled: yes
+     enabled: yes
 
   - name: remove html directory
     ansible.builtin.file:
