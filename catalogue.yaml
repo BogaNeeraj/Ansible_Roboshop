@@ -10,9 +10,32 @@
     ansible.builtin.dnf:
      name: nodejs
      state: present
+
   - name: create user
-    ansible.builtin.user:
+    ansible.builtin.user: #Ansible user module
      name: roboshop
      shell: /sbin/nologin
      system: true
      home: /app
+
+  - name: create directory
+    ansible.builtin.file: #Ansible file module
+     path: /app
+     state: directory
+
+  - name: download the code
+    ansible.builtin.get_url:  #Ansible get url module
+     url: https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip 
+     dest: /tmp/catalogue.zip
+
+  - name: extract the zip file
+    ansible.builtin.unarchive: #Ansible unzip module
+     src: /tmp/catalogue.zip
+     dest: /app
+
+  # - name: install dependencies
+  #   community.general.npm:
+  #    name: npm
+  #    path: /app
+    
+    
