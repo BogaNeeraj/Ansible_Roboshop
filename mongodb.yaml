@@ -26,7 +26,7 @@
 
   - name: restart the mongodb
     ansible.builtin.service:
-     name: mongodb
+     name: mongod
      stae: restarted
 
     
