@@ -49,7 +49,7 @@
      daemon_reload: true
 
   - name: Start and enable catalogue service
-  ansible.builtin.systemd:
-    name: catalogue
-    state: started
-    enabled: yes
+    ansible.builtin.service:
+     name: catalogue
+     state: started
+     enabled: yes
