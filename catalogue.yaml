@@ -1,0 +1,18 @@
+- name: catalogue service
+  hosts: catalogue
+  become: yes
+  tasks: 
+  - name: disable the old nodejs and enable to the nodejs
+    ansible.builtin.shell: dnf module disable nodejs -y; dnf module enable nodejs:20 -y
+    #Shell and command module, shell with login to target server to run 
+
+  - name: install the nodejs
+    ansible.builtin.dnf:
+     name: nodejs
+     state: present
+  - name: create user
+    ansible.builtin.user:
+     name: roboshop
+     shell: /sbin/nologin
+     system: true
+     home: /app
