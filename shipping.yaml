@@ -15,7 +15,7 @@
      name: "{{ item }}"
      executable: pip3.9
     loop:
-    - pip3.9
+    - PyMySQL
     - cryptography
     
   - name: create app directory
