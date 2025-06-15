@@ -1,5 +1,5 @@
 - name: Mongodb setup
-  hosts: mongodb1 #host name should match with name given in inventory file
+  hosts: mongodb #host name should match with name given in inventory file
   become: yes
   tasks:
   - name: copy the mongodb repo file
