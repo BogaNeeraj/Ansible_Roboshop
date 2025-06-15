@@ -80,7 +80,10 @@
   #    login_db: cities
 
   - name: import data
+    tags: 
+    - import
     community.mysql.mysql_db:
+     name: all
      login_user: root
      login password: Roboshop@1
      login_host: mysql.neeraj.sbs
