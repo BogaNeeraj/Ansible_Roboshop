@@ -86,7 +86,7 @@
       name: all
       login_user: root
       login_password: RoboShop@1
-      login_host: mysql.neeraj.site
+      login_host: mysql.neeraj.sbs
       state: import
       target: "{{ item }}"
     loop:
