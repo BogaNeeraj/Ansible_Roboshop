@@ -55,11 +55,11 @@
      enabled: yes
 
   - name: Add redis host to /etc/hosts
-  become: true
-  ansible.builtin.lineinfile:
-    path: /etc/hosts
-    line: "172.31.88.5 redis"
-    state: present
+    become: true
+    ansible.builtin.lineinfile:
+     path: /etc/hosts
+     line: "172.31.88.5 redis"
+     state: present
 
      
 
