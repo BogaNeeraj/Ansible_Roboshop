@@ -44,8 +44,8 @@
   
   - name: copy the service
     ansible.builtin.copy:
-    name: payment.service
-    dest: /etc/systemd/system/payment.service
+     name: payment.service
+     dest: /etc/systemd/system/payment.service
 
   - name: daemon reload
     ansible.builtin.systemd_service:
@@ -56,5 +56,5 @@
      name: payment
      state: started
      enables: yes
-     
+
 
