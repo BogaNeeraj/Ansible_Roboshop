@@ -72,12 +72,31 @@
   #    name: mysql
   #    state: present
 
-  - name: connect to mysql using app user
-    community.mysql.mysql_info:
-     login_user: shipping
-     login_password: RoboShop@1
+  # - name: connect to mysql using app user
+  #   community.mysql.mysql_info:
+  #    login_user: shipping
+  #    login_password: RoboShop@1
+  #    login_host: mysql.neeraj.sbs
+  #    login_db: cities
+
+  - name: import data
+    community.mysql.mysql_db:
+     login_user: root
+     login password: Roboshop@1
      login_host: mysql.neeraj.sbs
-     login_db: cities
+     state: import
+     target: "{{ item }}"
+    loop:
+    - /app/db/schema.sql
+    - /app/db/app-user.sql 
+    - /app/db/master-data.sql
+
+  - name: restart shipping
+    ansible.builtin.service:
+     name: shipping
+     state: restart
+
+
 
 
      
