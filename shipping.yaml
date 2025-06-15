@@ -6,6 +6,11 @@
     ansible.builtin.dnf:
      name: maven
      state: present
+
+  - name: install PyMySQL
+    ansible.builtin.pip:
+     name: PyMySQL 
+     executabel: pip3.9
     
   - name: create app directory
     ansible.builtin.file:
