@@ -1,4 +1,4 @@
-- name: configure mqsql component
+- name: configure mysql component
   hosts: mysql
   become: yes
   task:
